@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 #include "bmp.h"
 
 int validateImage(BMPImage* image) {
@@ -50,7 +51,7 @@ BMPImage fileToImage(const char* path) {
         for (int j = 0; j < image.infoHeader.width; j++) {
             fread(&image.pixels[i][j], bytesPerPixel, 1, fp);
         }
-        fseek(fp, (long) (4 - (image.infoHeader.width * sizeof(Pixel)) % 4) % 4, SEEK_CUR);
+        fseek(fp, (long) (4 - (image.infoHeader.width * bytesPerPixel) % 4) % 4, SEEK_CUR);
         if (ferror(fp)) {
             goto readError;
         }
@@ -98,7 +99,7 @@ int ImageToFile(const char* path, BMPImage* image) {
         for (int j = 0; j < image->infoHeader.width; j++) {
             fwrite(&image->pixels[i][j], bytesPerPixel, 1, fp);
         }
-        fseek(fp, (long) (4 - (image->infoHeader.width * sizeof(Pixel)) % 4) % 4, SEEK_CUR);
+        fseek(fp, (long) (4 - (image->infoHeader.width * bytesPerPixel) % 4) % 4, SEEK_CUR);
         if (ferror(fp)) {
             goto writeError;
         }

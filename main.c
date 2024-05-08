@@ -90,14 +90,14 @@ int main(int argc, char* argv[]) {
                 break;
             case 'h':
                 if (argc != 2) {
-                    fprintf(stderr, "Usage --help: -h/--help cannot be used with any other arguments");
+                    fprintf(stderr, "Usage --help: -h/--help is a standalone argument");
                     return 1;
                 }
                 printHelp();
                 return 0;
             case 'v':
                 if (argc != 2) {
-                    fprintf(stderr, "Usage --version: -v/--version cannot be used with any other arguments");
+                    fprintf(stderr, "Usage --version: -v/--version is a standalone argument");
                     return 1;
                 }
                 printVersion();
@@ -123,6 +123,7 @@ int main(int argc, char* argv[]) {
     }
 
     for (Operation* opt = optionStack; opt < optionStackPtr; opt++) {
+        printf("[%d/%d] ", (int) (opt - optionStack + 1), (int) (optionStackPtr - optionStack));
         printOperation(opt);
         applyOperation(opt->type)(&image, opt);
     }
