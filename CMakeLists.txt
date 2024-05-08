@@ -3,4 +3,11 @@ project(c_image_editor C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(c_image_editor main.c)
+add_executable(c_image_editor main.c
+        operations.c
+        operations.h
+        bmp.c
+        bmp.h
+        utils.c
+        utils.h
+)
