@@ -37,9 +37,9 @@ cmake ..
 make
 ```
 
-6. Run the program:
+6. Check if the program is installed:
 ```bash
-./c-image-editor
+ls ./c-image-editor
 ```
 
 ## Usage
