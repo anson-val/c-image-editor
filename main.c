@@ -109,6 +109,11 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    if (argc == 1) {
+        fprintf(stderr, "Usage: %s -f <input> -o <output> [options]\n", argv[0]);
+        return 1;
+    }
+
     BMPImage image = fileToImage(inputPath);
 
     if (isCheckInfo) {
