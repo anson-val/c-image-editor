@@ -11,3 +11,5 @@ add_executable(c-image-editor main.c
         utils.c
         utils.h
 )
+
+target_link_libraries(c-image-editor m)

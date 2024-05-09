@@ -113,7 +113,7 @@ void printHelp() {
 
 
 void printVersion() {
-    printf("C Image Editor version 0.1\n"
+    printf("C Image Editor version 0.1.2\n"
            "Created by Anson Ng on 8/5/2024\n"
     );
 }
