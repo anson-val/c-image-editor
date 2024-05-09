@@ -91,7 +91,8 @@ int parseRange(char* str, Operation* operation) {
 
 void printHelp() {
     printf("OVERVIEW: A very simple C uncompressed 24-bit/32-bit BMP image editor\n\n"
-           "USAGE: c-image-editor -f <input> -o <output> [options]\n\n"
+           "USAGE:                  c-image-editor -f <input> -o <output> [options]\n"
+           "USAGE FOR PROPERTIES:   c-image-editor -f <input> -i\n\n"
            "OPTIONS:\n"
            "   -c, --crop <range>          Crop the image\n"
            "   -r, --rotate <angle>        Rotate the image\n"
@@ -100,6 +101,7 @@ void printHelp() {
            "   -b, --box-blur <radius>     Apply a box blur to the image\n"
            "   -g, --grayscale             Convert the image to grayscale\n"
            "   -s, --sobel                 Apply the Sobel operator to the image\n"
+           "   -i, --info                  Display the properties of the image\n"
            "   -h, --help                  Display this help message\n"
            "   -v, --version               Display version information\n\n"
            "RANGE FORMAT:\n"
